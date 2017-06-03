@@ -18,6 +18,13 @@ class MapData{
         this.cols = cols;
   }
   
+  int get_height_at_point(int x, int y){
+     if(x >= 0 && x < this.rows && y >= 0 && y < this.cols-1){
+        return this.height_data[x][y];
+     }
+     return -1;
+  }
+  
   /*
   * Find the lowest and highest
   * points on the map. Will be

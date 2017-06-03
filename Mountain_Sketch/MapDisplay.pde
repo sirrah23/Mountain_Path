@@ -9,6 +9,7 @@ class MapDisplay{
   
   float[][] color_grid;
   int rows, cols, canvas_width, canvas_height;
+  ArrayList<Point> path = null;
  
   MapDisplay(float[][] color_grid, int rows, int cols, int canvas_width, int canvas_height){
     this.rows = rows;
@@ -33,7 +34,8 @@ class MapDisplay{
     return;
   }
   
-  void show(){
+  void draw_map(){
+    pushMatrix();
     int rect_width = this.canvas_width / this.cols;
     int rect_height = this.canvas_height / this.rows;
     for(int i = 0; i < this.rows; i++){
@@ -43,5 +45,23 @@ class MapDisplay{
         rect(i*rect_height, j*rect_width, rect_height, rect_width);  
       }
     }
+    popMatrix();
+  }
+  
+  void draw_path(){
+   if(this.path == null){return;}
+   pushMatrix();
+   int rect_width = this.canvas_width / this.cols;
+   int rect_height = this.canvas_height / this.rows;
+   for(Point pt : this.path){
+      fill(0, 255, 0); //green
+      rect(pt.x*rect_height, pt.y*rect_width, rect_height, rect_width);
+   }
+   popMatrix();
+  }
+  
+  void show(){
+    this.draw_map();
+    this.draw_path();
   }
 }
