@@ -60,15 +60,16 @@ class MapData{
   * columns used to initialize the class.
   */
   void initialize_data(){
+    //TODO: REGEX - replace multiple spaces with one space per column
     int[][] data = new int[this.rows][this.cols];
     String[] file_content = loadStrings(this.filename);
-    for(int i = 0; i < file_content.length; i++){
-       int curr_col = 0;
-       String[] line_content = split(file_content[i], ' ');
-       for(int j = 0; j < line_content.length; j++){
-         if(line_content[j].length() > 0){
-           data[i][curr_col] = Integer.parseInt(line_content[j]);
-           curr_col++;
+    for(int col = 0; col < file_content.length; col++){
+       int curr_row = 0;
+       String[] line_content = split(file_content[col], ' ');
+       for(int row = 0; row < line_content.length; row++){
+         if(line_content[row].length() > 0){
+           data[curr_row][col] = Integer.parseInt(line_content[row]);
+           curr_row++;
          }
        }
     }

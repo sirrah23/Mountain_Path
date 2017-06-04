@@ -4,27 +4,22 @@
 * containing colors. The map is assumed
 * to be black and white. 
 */
-
 class MapDisplay{
   
   float[][] color_grid;
-  int rows, cols, canvas_width, canvas_height;
+  int rows, cols;
   ArrayList<Point> path = null;
  
-  MapDisplay(float[][] color_grid, int rows, int cols, int canvas_width, int canvas_height){
+  MapDisplay(float[][] color_grid, int rows, int cols){
     this.rows = rows;
     this.cols = cols;
-    this.canvas_width = canvas_width;
-    this.canvas_height = canvas_height;
     this.color_grid = color_grid;
     return;
   }
   
-  MapDisplay(int rows, int cols, int canvas_width, int canvas_height){
+  MapDisplay(int rows, int cols){
     this.rows = rows;
     this.cols = cols;
-    this.canvas_width = canvas_width;
-    this.canvas_height = canvas_height;
     this.color_grid = new float[rows][cols];
     for(int i = 0; i < rows; i++){
       for(int j = 0; j < cols; j++){
@@ -36,8 +31,8 @@ class MapDisplay{
   
   void draw_map(){
     pushMatrix();
-    int rect_width = this.canvas_width / this.cols;
-    int rect_height = this.canvas_height / this.rows;
+    int rect_width = width / this.cols;
+    int rect_height = height / this.rows;
     for(int i = 0; i < this.rows; i++){
       for(int j = 0; j < this.cols; j++){
         noStroke();
@@ -51,8 +46,8 @@ class MapDisplay{
   void draw_path(){
    if(this.path == null){return;}
    pushMatrix();
-   int rect_width = this.canvas_width / this.cols;
-   int rect_height = this.canvas_height / this.rows;
+   int rect_width = width / this.cols;
+   int rect_height = height / this.rows;
    for(Point pt : this.path){
       fill(0, 255, 0); //green
       rect(pt.x*rect_height, pt.y*rect_width, rect_height, rect_width);

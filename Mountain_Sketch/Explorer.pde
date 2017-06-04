@@ -35,6 +35,7 @@ class Explorer{
   }
   
   Point move(){
+     //TODO: Restructure with loop across [-1, 0, 1]
      int curr_height = this.md.get_height_at_point(this.pos.x, this.pos.y);
      int height_up = this.md.get_height_at_point(this.pos.x+1, this.pos.y-1);
      int height_forward = this.md.get_height_at_point(this.pos.x+1, this.pos.y); 
