@@ -8,7 +8,7 @@ class MapDisplay{
   
   float[][] color_grid;
   int rows, cols;
-  ArrayList<Point> path = null;
+  ArrayList<PVector> path = null;
  
   MapDisplay(float[][] color_grid, int rows, int cols){
     this.rows = rows;
@@ -31,8 +31,7 @@ class MapDisplay{
   
   void draw_map(){
     pushMatrix();
-    int rect_width = width / this.cols;
-    int rect_height = height / this.rows;
+    int rect_width=1, rect_height=1;
     for(int i = 0; i < this.rows; i++){
       for(int j = 0; j < this.cols; j++){
         noStroke();
@@ -46,9 +45,8 @@ class MapDisplay{
   void draw_path(){
    if(this.path == null){return;}
    pushMatrix();
-   int rect_width = width / this.cols;
-   int rect_height = height / this.rows;
-   for(Point pt : this.path){
+   int rect_width=1, rect_height=1;
+   for(PVector pt : this.path){
       fill(0, 255, 0); //green
       rect(pt.x*rect_height, pt.y*rect_width, rect_height, rect_width);
    }

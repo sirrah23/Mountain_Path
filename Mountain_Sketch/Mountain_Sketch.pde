@@ -11,7 +11,7 @@ void setup(){
   md.compute_min_max();
   float[][] gs = md.grayscale();
   ex = new Explorer(md, rows, cols);
-  ArrayList<Point> path = ex.explore();
+  ArrayList<PVector> path = ex.explore();
   ms = new MapDisplay(gs, rows, cols);
   ms.path = path;
   background(255);
