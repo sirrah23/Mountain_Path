@@ -35,7 +35,7 @@ class Explorer{
   }
   
   private void set_random_start(){
-    this.pos = new PVector(0, int(random(this.map_height)));
+    this.pos = new PVector(0, int(random(this.map_width)));
   }
   
   PVector move(){
